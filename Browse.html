@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PetBDAdopt — Browse Pets</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div>
+      <div class="brand">
+        <div class="brand-icon">🐾</div>
+        <div class="brand-text">
+          <div class="name">PetBD<span>Adopt</span></div>
+          <div class="subtitle">Adopter Portal</div>
+        </div>
+      </div>
+
+      <nav class="main-nav">
+        <a class="nav-item"><span class="left">▦ Dashboard</span></a>
+        <a class="nav-item active"><span class="left">🐾 Browse Pets</span></a>
+        <a class="nav-item"><span class="left">📄 My Applications</span><span class="badge">2</span></a>
+        <a class="nav-item"><span class="left">♥ Favorites</span><span class="badge">3</span></a>
+        <a class="nav-item"><span class="left">👤 Profile</span></a>
+        <a class="nav-item"><span class="left">🔔 Notifications</span><span class="badge">2</span></a>
+      </nav>
+    </div>
+
+    <div class="sidebar-footer">
+      <div class="user-row">
+        <div class="user-avatar">👤</div>
+        <div>
+          <div class="user-name">Rahim Uddin</div>
+          <div class="user-role">User</div>
+        </div>
+      </div>
+      <button class="logout-btn">⇥ Logout</button>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <main class="main">
+    <div class="top-bar">
+      <h1>Browse Pets</h1>
+      <div class="top-actions">
+        <button class="icon-btn">🔔<span class="dot">2</span></button>
+        <button class="primary-btn">Find a Pet</button>
+      </div>
+    </div>
+
+    <div class="filters">
+      <input type="text" placeholder="Search by name, breed, or location...">
+      <select>
+        <option>All Types</option>
+        <option>Dog</option>
+        <option>Cat</option>
+        <option>Bird</option>
+        <option>Rabbit</option>
+      </select>
+      <select>
+        <option>All Locations</option>
+        <option>Dhaka</option>
+        <option>Chittagong</option>
+        <option>Sylhet</option>
+        <option>Rajshahi</option>
+        <option>Khulna</option>
+      </select>
+      <select>
+        <option>Any Compatibility</option>
+        <option>90%+</option>
+        <option>80%+</option>
+        <option>70%+</option>
+      </select>
+    </div>
+
+    <div class="results-count">6 pets available for adoption</div>
+
+    <div class="pet-grid">
+
+      <!-- Bruno -->
+      <div class="pet-card">
+        <div class="pet-photo" style="background-image:url('https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&h=300&fit=crop')">
+          <span class="type-tag">Dog</span>
+        </div>
+        <div class="pet-info">
+          <div class="pet-name-row"><span class="name">Bruno</span><span class="age">2 years</span></div>
+          <div class="pet-breed">Labrador Retriever · Dhaka, Mirpur</div>
+          <div class="compat-row"><span>Compatibility Score</span><span class="compat-score high">94%</span></div>
+          <div class="progress-bar"><div class="progress-fill high" style="width:94%"></div></div>
+          <div class="pet-actions">
+            <button class="btn-outline">View Details</button>
+            <button class="btn-solid">Apply</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Luna -->
+      <div class="pet-card">
+        <div class="pet-photo" style="background-image:url('https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=400&h=300&fit=crop')">
+          <span class="type-tag">Cat</span>
+        </div>
+        <div class="pet-info">
+          <div class="pet-name-row"><span class="name">Luna</span><span class="age">1 year</span></div>
+          <div class="pet-breed">Persian · Chittagong</div>
+          <div class="compat-row"><span>Compatibility Score</span><span class="compat-score high">88%</span></div>
+          <div class="progress-bar"><div class="progress-fill high" style="width:88%"></div></div>
+          <div class="pet-actions">
+            <button class="btn-outline">View Details</button>
+            <button class="btn-solid">Apply</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Koko -->
+      <div class="pet-card">
+        <div class="pet-photo" style="background-image:url('https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=400&h=300&fit=crop')">
+          <span class="type-tag">Bird</span>
+        </div>
+        <div class="pet-info">
+          <div class="pet-name-row"><span class="name">Koko</span><span class="age">3 years</span></div>
+          <div class="pet-breed">African Grey · Sylhet</div>
+          <div class="compat-row"><span>Compatibility Score</span><span class="compat-score mid">76%</span></div>
+          <div class="progress-bar"><div class="progress-fill mid" style="width:76%"></div></div>
+          <div class="pet-actions">
+            <button class="btn-outline">View Details</button>
+            <button class="btn-solid">Apply</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bella -->
+      <div class="pet-card">
+        <div class="pet-photo" style="background-image:url('https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?w=400&h=300&fit=crop')">
+          <span class="type-tag">Rabbit</span>
+        </div>
+        <div class="pet-info">
+          <div class="pet-name-row"><span class="name">Bella</span><span class="age">8 months</span></div>
+          <div class="pet-breed">Holland Lop · Rajshahi</div>
+          <div class="compat-row"><span>Compatibility Score</span><span class="compat-score high">91%</span></div>
+          <div class="progress-bar"><div class="progress-fill high" style="width:91%"></div></div>
+          <div class="pet-actions">
+            <button class="btn-outline">View Details</button>
+            <button class="btn-solid">Apply</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rex -->
+      <div class="pet-card">
+        <div class="pet-photo" style="background-image:url('https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?w=400&h=300&fit=crop')">
+          <span class="type-tag">Dog</span>
+        </div>
+        <div class="pet-info">
+          <div class="pet-name-row"><span class="name">Rex</span><span class="age">3 years</span></div>
+          <div class="pet-breed">German Shepherd · Dhaka, Banani</div>
+          <div class="compat-row"><span>Compatibility Score</span><span class="compat-score high">82%</span></div>
+          <div class="progress-bar"><div class="progress-fill high" style="width:82%"></div></div>
+          <div class="pet-actions">
+            <button class="btn-outline">View Details</button>
+            <button class="btn-solid">Apply</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mia (adopted) -->
+      <div class="pet-card">
+        <div class="pet-photo" style="background-image:url('https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=400&h=300&fit=crop')">
+          <span class="type-tag">Cat</span>
+          <div class="status-tag"><span>Adopted</span></div>
+        </div>
+        <div class="pet-info">
+          <div class="pet-name-row"><span class="name">Mia</span><span class="age">6 months</span></div>
+          <div class="pet-breed">Domestic Shorthair · Khulna</div>
+          <div class="compat-row"><span>Compatibility Score</span><span class="compat-score high">95%</span></div>
+          <div class="progress-bar"><div class="progress-fill high" style="width:95%"></div></div>
+          <div class="pet-actions">
+            <button class="btn-outline">View Details</button>
+            <button class="btn-solid" disabled>Apply</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>
