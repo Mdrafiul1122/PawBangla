@@ -3,82 +3,151 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PetBDAdopt — Adoption Application</title>
+<title>PawBangla — Adoption Application</title>
 <link rel="stylesheet" href="apply.css">
 </head>
 <body>
 
   <!-- Header -->
   <header class="site-header">
-    <div class="logo">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+    <a class="logo-link" href="index.html">
       <div class="logo-icon">🐾</div>
-      <span class="logo-text">PetBD<span>Adopt</span></span>
-    </div>
+      <span class="logo-text">Paw<span>Bangla</span></span>
+    </a>
 
-    <nav class="main-nav">
-      <a href="#" class="nav-link">Home</a>
-      <a href="#" class="nav-link active">Browse Pets</a>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="Browse.html" class="nav-link active">Browse Pets</a>
       <a href="#" class="nav-link">Success Stories</a>
       <a href="#" class="nav-link">About</a>
       <a href="#" class="nav-link">Contact</a>
     </nav>
 
     <div class="header-actions">
-      <button class="icon-btn">🔔<span class="dot">3</span></button>
-      <button class="btn-outline-nav">Login</button>
-      <button class="btn-solid-nav">Admin</button>
+      <a href="user-dashboard.html" class="icon-btn">🔔<span class="dot">3</span></a>
+      <a href="login.html" class="btn-outline-nav" id="loginBtn">Login</a>
+      <a href="Browse.html" class="btn-solid-nav">Find a Pet</a>
     </div>
   </header>
 
   <!-- Main -->
   <main class="page">
-    <a href="#" class="back-link">← Back</a>
+    <a href="Browse.html" class="back-link">← Back to Browse</a>
 
-    <div class="applying-banner">
-      <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=100&h=100&fit=crop" alt="Bruno" class="applying-photo">
-      <div>
-        <div class="applying-title">Applying for: Bruno</div>
-        <div class="applying-sub">Labrador Retriever · Dhaka, Mirpur</div>
+    <div class="form-success hidden" id="applySuccess">
+      <b>🎉 Application submitted!</b>
+      <p>Thank you for applying to adopt <span id="successPet">your pet</span>. Our team will review your application and contact you shortly.</p>
+      <div class="apply-links">
+        <a class="btn-outline apply-link" href="user-dashboard.html">Track Application</a>
+        <a class="btn-solid apply-link" href="Browse.html">Browse More Pets</a>
       </div>
     </div>
 
-    <form class="application-card">
+    <div class="form-warning hidden" id="loginNotice">
+      <b>Login required</b>
+      <p>Please log in to apply for adoption of <span id="loginPet">this pet</span>. It only takes a minute.</p>
+      <div class="apply-links">
+        <a class="btn-solid apply-link" id="loginCta" href="login.html">Log in to continue</a>
+      </div>
+    </div>
+
+    <div class="form-warning hidden" id="unavailableNotice">
+      <b>Not available anymore</b>
+      <p><span id="unavailablePet">This pet</span> is no longer available for adoption. Please browse other pets looking for a home.</p>
+      <div class="apply-links">
+        <a class="btn-solid apply-link" href="Browse.html">Browse Other Pets</a>
+      </div>
+    </div>
+
+    <div class="form-warning hidden" id="duplicateNotice">
+      <b>Application already submitted</b>
+      <p>You have already applied for <span id="duplicatePet">this pet</span>. You can track the status of your application from your dashboard.</p>
+      <div class="apply-links">
+        <a class="btn-solid apply-link" href="user-dashboard.html">View My Applications</a>
+      </div>
+    </div>
+
+    <div class="applying-banner hidden" id="applyingBanner">
+      <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=100&h=100&fit=crop" alt="Pet photo" class="applying-photo" id="applyingPhoto">
+      <div>
+        <div class="applying-title" id="applyingTitle">Applying for: Bruno</div>
+        <div class="applying-sub" id="applyingSub">Labrador Retriever · Dhaka, Mirpur</div>
+      </div>
+    </div>
+
+    <form class="application-card" id="applicationForm" novalidate>
       <h2>Adoption Application Form</h2>
 
       <div class="form-group">
-        <label>Full Name <span class="required">*</span></label>
-        <input type="text" placeholder="Your full name">
+        <label for="fName">Full Name <span class="required">*</span></label>
+        <input type="text" id="fName" placeholder="Your full name" autocomplete="name">
+        <p class="form-error" data-for="fName"></p>
       </div>
 
       <div class="form-group">
-        <label>Phone Number <span class="required">*</span></label>
-        <input type="tel" placeholder="+880 1XXXXXXXXX">
+        <label for="fEmail">Email Address <span class="required">*</span></label>
+        <input type="email" id="fEmail" placeholder="you@example.com" autocomplete="email">
+        <p class="form-error" data-for="fEmail"></p>
       </div>
 
       <div class="form-group">
-        <label>Address <span class="required">*</span></label>
-        <input type="text" placeholder="House, Road, Area, District">
+        <label for="fPhone">Phone Number <span class="required">*</span></label>
+        <input type="tel" id="fPhone" placeholder="+880 1XXXXXXXXX" autocomplete="tel">
+        <p class="form-error" data-for="fPhone"></p>
       </div>
 
       <div class="form-group">
-        <label>Preferred Pet Type <span class="required">*</span></label>
-        <select>
-          <option>Dog</option>
-          <option>Cat</option>
-          <option>Bird</option>
-          <option>Rabbit</option>
+        <label for="fAddress">Address <span class="required">*</span></label>
+        <input type="text" id="fAddress" placeholder="House, Road, Area, District" autocomplete="street-address">
+        <p class="form-error" data-for="fAddress"></p>
+      </div>
+
+      <div class="form-group">
+        <label for="fType">Preferred Pet Type <span class="required">*</span></label>
+        <select id="fType">
+          <option value="Dog">Dog</option>
+          <option value="Cat">Cat</option>
+          <option value="Bird">Bird</option>
+          <option value="Rabbit">Rabbit</option>
         </select>
       </div>
 
       <div class="form-group">
-        <label>Reason for Adoption <span class="required">*</span></label>
-        <textarea rows="4" placeholder="Tell us why you want to adopt and why you'd be a great match..."></textarea>
+        <label for="fExperience">Experience with Pets <span class="required">*</span></label>
+        <select id="fExperience">
+          <option value="">Choose your experience level</option>
+          <option value="None">No experience yet</option>
+          <option value="Some">Some experience</option>
+          <option value="Experienced">Experienced (2+ years)</option>
+        </select>
+        <p class="form-error" data-for="fExperience"></p>
       </div>
 
-      <label class="checkbox-row">
-        <input type="checkbox">
-        <span>I agree to provide a safe and loving home and understand that PetBD may conduct a home visit before final approval.</span>
-      </label>
+      <div class="form-group">
+        <label for="fReason">Reason for Adoption <span class="required">*</span></label>
+        <textarea rows="4" id="fReason" placeholder="Tell us why you want to adopt and why you'd be a great match..."></textarea>
+        <p class="form-error" data-for="fReason"></p>
+      </div>
+
+      <div class="form-group">
+        <label>Preferred Contact Method <span class="required">*</span></label>
+        <div class="radio-row" id="contactGroup">
+          <label><input type="radio" name="contact" value="Phone"> Phone</label>
+          <label><input type="radio" name="contact" value="Email"> Email</label>
+        </div>
+        <p class="form-error" data-for="contact"></p>
+      </div>
+
+      <div class="form-group">
+        <label class="checkbox-row">
+          <input type="checkbox" id="fAgree">
+          <span>I agree to provide a safe and loving home and understand that PawBangla may conduct a home visit before final approval. <span class="required">*</span></span>
+        </label>
+        <p class="form-error" data-for="fAgree"></p>
+      </div>
+
+      <input type="hidden" id="petId" value="">
 
       <button type="submit" class="submit-btn">Submit Application</button>
     </form>
@@ -90,15 +159,15 @@
       <div class="footer-brand">
         <div class="logo">
           <div class="logo-icon">🐾</div>
-          <span class="logo-text light">PetBD<span>Adopt</span></span>
+          <span class="logo-text light">Paw<span>Bangla</span></span>
         </div>
         <p>Bangladesh's trusted pet adoption platform — connecting hearts across all 64 districts since 2024.</p>
-        <p class="contact-line">✉ info@petbd.com &nbsp; 📞 +880 1700-000000</p>
+        <p class="contact-line">✉ info@pawbangla.com &nbsp; 📞 +880 1700-000000</p>
       </div>
 
       <div class="footer-col">
         <h4>PLATFORM</h4>
-        <a href="#">Browse Pets</a>
+        <a href="Browse.html">Browse Pets</a>
         <a href="#">Success Stories</a>
         <a href="#">About Us</a>
         <a href="#">Contact</a>
@@ -106,26 +175,30 @@
 
       <div class="footer-col">
         <h4>PETS</h4>
-        <a href="#">Dogs</a>
-        <a href="#">Cats</a>
-        <a href="#">Birds</a>
-        <a href="#">Rabbits</a>
+        <a href="Browse.html?type=Dog">Dogs</a>
+        <a href="Browse.html?type=Cat">Cats</a>
+        <a href="Browse.html?type=Bird">Birds</a>
+        <a href="Browse.html?type=Rabbit">Rabbits</a>
       </div>
 
       <div class="footer-col">
         <h4>ACCOUNT</h4>
-        <a href="#">Login</a>
-        <a href="#">Register</a>
-        <a href="#">My Dashboard</a>
-        <a href="#">Admin</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+        <a href="user-dashboard.html">My Dashboard</a>
+        <a href="index.html">Home</a>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <span>© 2026 PetBD Adopt. All rights reserved.</span>
+      <span>© 2026 PawBangla. All rights reserved.</span>
       <span>Made with ♥ for animals in Bangladesh.</span>
     </div>
   </footer>
 
+  <script src="js/pet-data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/apply.js"></script>
 </body>
 </html>

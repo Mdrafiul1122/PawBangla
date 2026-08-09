@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PawBangla — Adopt a Pet in Bangladesh</title>
+<link rel="stylesheet" href="apply.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+    <a class="logo-link" href="index.html">
+      <div class="logo-icon">🐾</div>
+      <span class="logo-text">Paw<span>Bangla</span></span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="Browse.html" class="nav-link">Browse Pets</a>
+      <a href="#" class="nav-link">Success Stories</a>
+      <a href="#" class="nav-link">About</a>
+      <a href="#" class="nav-link">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="user-dashboard.html" class="icon-btn">🔔<span class="dot">3</span></a>
+      <a href="admin-login.html" class="btn-outline-nav" style="font-size:12px;">Admin</a>
+      <a href="login.html" class="btn-outline-nav" id="loginBtn">Login</a>
+      <a href="Browse.html" class="btn-solid-nav">Find a Pet</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main class="container">
+    <section class="hero">
+      <span class="hero-tag">A warm home for every paw 🐕</span>
+      <h1>Adopt a loving pet and change a life today</h1>
+      <p>PawBangla connects loving families across Bangladesh with dogs, cats, birds and rabbits who are waiting for their forever home.</p>
+      <div class="hero-actions">
+        <a href="Browse.html" class="btn-light">Browse Pets</a>
+        <a href="register.html" class="btn-ghost">Create an Account</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b>250+</b><span>Happy adoptions</span></div>
+        <div class="stat"><b>64</b><span>Districts served</span></div>
+        <div class="stat"><b>4</b><span>Pet types available</span></div>
+      </div>
+    </section>
+
+    <!-- Featured pets -->
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="section-title">Pets looking for a home</div>
+          <div class="section-sub">Meet some of our lovely companions waiting for adoption.</div>
+        </div>
+        <a class="link-plain" href="Browse.html">Browse all pets →</a>
+      </div>
+
+      <div class="p-grid" id="featuredGrid"></div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section">
+      <div class="section-title">How adoption works</div>
+      <div class="section-sub">Three simple steps to finding your new best friend.</div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-icon">🐾</div>
+          <b>Browse pets</b>
+          <p>Search by type, breed or location and find the pet that fits your lifestyle.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-icon">📄</div>
+          <b>Apply to adopt</b>
+          <p>Fill in a short application form and tell us about your home and experience.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-icon">🏠</div>
+          <b>Meet &amp; welcome home</b>
+          <p>Once approved, meet your pet, complete the handover and start your story.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust band -->
+    <section class="section">
+      <div class="trust-band">
+        <p>🐾 Every pet is vaccinated, health-checked and matched by our team.</p>
+        <a class="link-plain" href="Browse.html">Start looking for your pet →</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon">🐾</div>
+          <span class="logo-text light">Paw<span>Bangla</span></span>
+        </div>
+        <p>Bangladesh's trusted pet adoption platform — connecting hearts across all 64 districts since 2024.</p>
+        <p class="contact-line">✉ info@pawbangla.com &nbsp; 📞 +880 1700-000000</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>PLATFORM</h4>
+        <a href="Browse.html">Browse Pets</a>
+        <a href="#">Success Stories</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>PETS</h4>
+        <a href="Browse.html?type=Dog">Dogs</a>
+        <a href="Browse.html?type=Cat">Cats</a>
+        <a href="Browse.html?type=Bird">Birds</a>
+        <a href="Browse.html?type=Rabbit">Rabbits</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>ACCOUNT</h4>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+        <a href="user-dashboard.html">My Dashboard</a>
+        <a href="admin-login.html">Admin Login</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 PawBangla. All rights reserved.</span>
+      <span>Made with ♥ for animals in Bangladesh.</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/pet-data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>
