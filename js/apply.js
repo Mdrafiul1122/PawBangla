@@ -184,17 +184,40 @@
       status: 'Pending'
     };
 
+    // Save locally so the dashboard (localStorage-based) keeps working.
     var apps = getApplications();
     apps.unshift(app);
     saveApplications(apps);
 
+    // Send the application to the PHP backend (php/apply.php).
     var form = $('applicationForm');
-    var success = $('applySuccess');
-    var sp = $('successPet');
-    if (sp) sp.textContent = (pet ? pet.name : 'your pet');
-    if (success) success.classList.remove('hidden');
-    if (form) form.classList.add('hidden');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    var formData = new FormData(form);
+    var submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) { submitBtn.disabled = true; }
+
+    fetch(form.action, { method: form.method, body: formData })
+      .then(function (res) { return res.json().catch(function () { return {}; }).then(function (data) { return { ok: res.ok, data: data }; }); })
+      .then(function (r) {
+        var success = $('applySuccess');
+        var sp = $('successPet');
+        if (sp) sp.textContent = (pet ? pet.name : 'your pet');
+        if (success) success.classList.remove('hidden');
+        if (form) form.classList.add('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      })
+      .catch(function () {
+        // Even if the server is unreachable, keep the local success so the
+        // dashboard still shows the application.
+        var success = $('applySuccess');
+        var sp = $('successPet');
+        if (sp) sp.textContent = (pet ? pet.name : 'your pet');
+        if (success) success.classList.remove('hidden');
+        if (form) form.classList.add('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      })
+      .finally(function () {
+        if (submitBtn) { submitBtn.disabled = false; }
+      });
   }
 
   document.addEventListener('DOMContentLoaded', function () {

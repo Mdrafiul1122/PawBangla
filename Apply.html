@@ -76,36 +76,36 @@
       </div>
     </div>
 
-    <form class="application-card" id="applicationForm" novalidate>
+    <form class="application-card" id="applicationForm" action="php/apply.php" method="post" novalidate>
       <h2>Adoption Application Form</h2>
 
       <div class="form-group">
         <label for="fName">Full Name <span class="required">*</span></label>
-        <input type="text" id="fName" placeholder="Your full name" autocomplete="name">
+        <input type="text" id="fName" name="fName" placeholder="Your full name" autocomplete="name">
         <p class="form-error" data-for="fName"></p>
       </div>
 
       <div class="form-group">
         <label for="fEmail">Email Address <span class="required">*</span></label>
-        <input type="email" id="fEmail" placeholder="you@example.com" autocomplete="email">
+        <input type="email" id="fEmail" name="fEmail" placeholder="you@example.com" autocomplete="email">
         <p class="form-error" data-for="fEmail"></p>
       </div>
 
       <div class="form-group">
         <label for="fPhone">Phone Number <span class="required">*</span></label>
-        <input type="tel" id="fPhone" placeholder="+880 1XXXXXXXXX" autocomplete="tel">
+        <input type="tel" id="fPhone" name="fPhone" placeholder="+880 1XXXXXXXXX" autocomplete="tel">
         <p class="form-error" data-for="fPhone"></p>
       </div>
 
       <div class="form-group">
         <label for="fAddress">Address <span class="required">*</span></label>
-        <input type="text" id="fAddress" placeholder="House, Road, Area, District" autocomplete="street-address">
+        <input type="text" id="fAddress" name="fAddress" placeholder="House, Road, Area, District" autocomplete="street-address">
         <p class="form-error" data-for="fAddress"></p>
       </div>
 
       <div class="form-group">
         <label for="fType">Preferred Pet Type <span class="required">*</span></label>
-        <select id="fType">
+        <select id="fType" name="fType">
           <option value="Dog">Dog</option>
           <option value="Cat">Cat</option>
           <option value="Bird">Bird</option>
@@ -115,7 +115,7 @@
 
       <div class="form-group">
         <label for="fExperience">Experience with Pets <span class="required">*</span></label>
-        <select id="fExperience">
+        <select id="fExperience" name="fExperience">
           <option value="">Choose your experience level</option>
           <option value="None">No experience yet</option>
           <option value="Some">Some experience</option>
@@ -126,7 +126,7 @@
 
       <div class="form-group">
         <label for="fReason">Reason for Adoption <span class="required">*</span></label>
-        <textarea rows="4" id="fReason" placeholder="Tell us why you want to adopt and why you'd be a great match..."></textarea>
+        <textarea rows="4" id="fReason" name="fReason" placeholder="Tell us why you want to adopt and why you'd be a great match..."></textarea>
         <p class="form-error" data-for="fReason"></p>
       </div>
 
@@ -141,13 +141,13 @@
 
       <div class="form-group">
         <label class="checkbox-row">
-          <input type="checkbox" id="fAgree">
+          <input type="checkbox" id="fAgree" name="fAgree" value="1">
           <span>I agree to provide a safe and loving home and understand that PawBangla may conduct a home visit before final approval. <span class="required">*</span></span>
         </label>
         <p class="form-error" data-for="fAgree"></p>
       </div>
 
-      <input type="hidden" id="petId" value="">
+      <input type="hidden" id="petId" name="petId" value="">
 
       <button type="submit" class="submit-btn">Submit Application</button>
     </form>
