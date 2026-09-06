@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PawBangla — Admin Login</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-auth">
+
+  <div class="admin-auth-wrap">
+    <div class="admin-auth-card">
+      <a class="admin-brand" href="index.html">
+        <div class="icon">🐾</div>
+        <div class="text">
+          <div class="name">Paw<span>Bangla</span></div>
+          <div class="sub">Admin Portal</div>
+        </div>
+      </a>
+
+      <span id="adminLoginError" class="form-error hidden" style="margin-bottom:14px;text-align:center;"></span>
+
+      <h1>Admin Login</h1>
+      <p class="auth-sub">Sign in to manage pets, users and adoption requests.</p>
+
+      <form id="adminLoginForm" novalidate>
+        <div class="form-group">
+          <label for="adminEmail">Admin Email <span class="required">*</span></label>
+          <input type="email" id="adminEmail" placeholder="admin@example.com" autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label for="adminPassword">Password <span class="required">*</span></label>
+          <input type="password" id="adminPassword" placeholder="••••••••" autocomplete="current-password">
+        </div>
+
+        <div class="form-group" style="margin-bottom:18px;">
+          <label style="display:flex;align-items:center;gap:6px;font-size:13px;font-weight:400;color:var(--text-mid);">
+            <input type="checkbox" id="adminRemember" style="width:auto;"> Remember this admin on this device
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%;padding:12px 0;font-size:14px;">Log In to Admin</button>
+      </form>
+
+      <div class="admin-auth-hint">Demo mode: any <b>email/username</b> + any <b>non-empty password</b> grants access</div>
+      <div style="text-align:center;margin-top:18px;">
+        <a href="index.html" style="color:var(--blue);font-size:13px;font-weight:600;text-decoration:none;">← Back to PawBangla site</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>
