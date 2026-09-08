@@ -410,7 +410,7 @@ body{
 .care-list{ list-style:none; }
 .care-list li{ padding:8px 0; border-bottom:1px solid var(--border); font-size:13px; color:var(--text-mid); }
 .care-list li:last-child{ border-bottom:none; }
-.care-list li::before{ content:"🐾 "; }
+.care-list li::before{ content:"✦ "; }
 
 /* ---------- Auth ---------- */
 .auth-page{ min-height:72vh; display:flex; align-items:center; justify-content:center; padding:40px 20px 70px; }

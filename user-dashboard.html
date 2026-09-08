@@ -5,12 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PawBangla — User Dashboard</title>
 <link rel="stylesheet" href="Styles.css">
+<link rel="stylesheet" href="dashboard-theme.css">
+<link rel="stylesheet" href="shared-nav.css">
 </head>
 <body>
 
   <!-- Mobile top bar -->
   <div class="mobile-bar">
-    <a class="logo-link" href="index.html">🐾 Paw<span>Bangla</span></a>
+    <a class="logo-link" href="index.html">✦ Paw<span>Bangla</span></a>
     <div class="mobile-links">
       <a href="user-dashboard.html">Dashboard</a>
       <a href="Browse.html">Browse</a>
@@ -23,7 +25,7 @@
     <div>
       <div class="brand">
         <a class="brand-link" href="index.html">
-          <div class="brand-icon">🐾</div>
+          <div class="brand-icon">✦</div>
           <div class="brand-text">
             <div class="name">Paw<span>Bangla</span></div>
             <div class="subtitle">Adopter Portal</div>
@@ -32,34 +34,33 @@
       </div>
 
       <nav class="main-nav">
-        <a class="nav-item active" href="user-dashboard.html"><span class="left">▦ Dashboard</span></a>
-        <a class="nav-item" href="Browse.html"><span class="left">🐾 Browse Pets</span></a>
-        <a class="nav-item" href="#applications"><span class="left">📄 My Applications</span><span class="badge" id="appBadge">0</span></a>
-        <a class="nav-item" href="#adopted"><span class="left">🏡 Adopted Pets</span><span class="badge" id="adoptedBadge">0</span></a>
-        <a class="nav-item" href="#favorites"><span class="left">♥ Favorites</span><span class="badge" id="favBadge">0</span></a>
-        <a class="nav-item" href="#profile"><span class="left">👤 Profile</span></a>
-        <a class="nav-item" href="#notifications"><span class="left">🔔 Notifications</span><span class="badge">2</span></a>
+        <a class="nav-item active" href="user-dashboard.html"><span class="left">Dashboard</span></a>
+        <a class="nav-item" href="Browse.html"><span class="left"> Browse Pets</span></a>
+        <a class="nav-item" href="petstorypost.html"><span class="left"> Success Stories</span></a>
+        <a class="nav-item" href="#applications"><span class="left"> My Applications</span><span class="badge" id="appBadge">0</span></a>
+        <a class="nav-item" href="#favorites"><span class="left"> Favorites</span><span class="badge" id="favBadge">0</span></a>
+        <a class="nav-item" href="#profile"><span class="left"> Profile</span></a>
+        <a class="nav-item" href="#notifications"><span class="left"> Notifications</span><span class="badge">2</span></a>
       </nav>
     </div>
 
     <div class="sidebar-footer">
       <div class="user-row">
-        <div class="user-avatar">👤</div>
+        <div class="user-avatar">U</div>
         <div>
           <div class="user-name js-username">Rahim Uddin</div>
           <div class="user-role">User</div>
         </div>
       </div>
-      <a href="login.html" class="logout-btn" onclick="logout(); return false;">⇥ Logout</a>
+      <a href="login.html" class="logout-btn" onclick="logout(); return false;">Logout</a>
     </div>
   </aside>
 
   <!-- Main content -->
   <main class="main">
     <div class="top-bar">
-      <h1>Welcome back, <span id="greetingName">Rahim</span> 👋</h1>
+      <h1>Welcome back, <span id="greetingName">Rahim</span></h1>
       <div class="top-actions">
-        <a href="#notifications" class="icon-btn">🔔<span class="dot">2</span></a>
         <a href="Apply.html" class="primary-btn" style="text-decoration:none;">Find a Pet</a>
       </div>
     </div>
@@ -78,22 +79,22 @@
     <!-- Stats -->
     <div class="stats-grid">
       <div class="stat-card blue">
-        <div class="stat-icon">📄</div>
+        <div class="stat-icon"></div>
         <div class="stat-label">Total Applications</div>
         <div class="stat-value" id="statApplications">0</div>
       </div>
       <div class="stat-card green">
-        <div class="stat-icon">♥</div>
+        <div class="stat-icon"></div>
         <div class="stat-label">Favorites</div>
         <div class="stat-value" id="statFavorites">0</div>
       </div>
       <div class="stat-card pending">
-        <div class="stat-icon">⏳</div>
+        <div class="stat-icon"></div>
         <div class="stat-label">Pending / In Review</div>
         <div class="stat-value" id="statInReview">0</div>
       </div>
       <div class="stat-card">
-        <div class="stat-icon">🏡</div>
+        <div class="stat-icon"></div>
         <div class="stat-label">Adopted Pets</div>
         <div class="stat-value" id="statAdopted">0</div>
       </div>
@@ -189,5 +190,6 @@
   <script src="js/pet-data.js"></script>
   <script src="js/auth.js"></script>
   <script src="js/dashboard.js"></script>
+  <script src="shared-nav.js"></script>
 </body>
 </html>
