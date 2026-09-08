@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PawBangla — Pet Success Stories</title>
+<link rel="stylesheet" href="Styles.css">
+  <link rel="stylesheet" href="shared-nav.css">
+  <style>
+    .stories-container {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .stories-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .stories-header h1 {
+      font-size: 32px;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .stories-header p {
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    /* Post Button */
+    .post-story-btn {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+      color: #fff;
+      padding: 16px;
+      border: none;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 30px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .post-story-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(28, 42, 133, 0.3);
+    }
+
+    /* Modal/Overlay */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-content {
+      background: #fff;
+      border-radius: 12px;
+      max-width: 600px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 30px;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--gray);
+    }
+
+    .modal-close:hover {
+      color: var(--navy);
+    }
+
+    .modal h2 {
+      font-size: 22px;
+      color: var(--navy);
+      margin-bottom: 8px;
+      margin-top: 0;
+    }
+
+    .modal p {
+      color: var(--gray);
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    /* Feed Container */
+    .stories-feed {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Story Card */
+    .story-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .story-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .story-header {
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .story-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: #fff;
+    }
+
+    .story-meta {
+      flex: 1;
+    }
+
+    .story-meta-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy);
+      margin: 0;
+    }
+
+    .story-meta-info {
+      font-size: 12px;
+      color: var(--gray);
+      margin: 3px 0 0 0;
+    }
+
+    .story-image {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      background: linear-gradient(135deg, #f0f4ff, #e8f1ff);
+    }
+
+    .story-content {
+      padding: 16px;
+    }
+
+    .story-pet-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .story-text {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+
+    .story-footer {
+      padding: 12px 16px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--gray);
+      display: flex;
+      gap: 16px;
+    }
+
+    /* Form Styles */
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 13px;
+      box-sizing: border-box;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(28, 42, 133, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .file-upload {
+      border: 2px dashed var(--border);
+      border-radius: 6px;
+      padding: 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .file-upload:hover {
+      border-color: var(--blue);
+      background: rgba(28, 42, 133, 0.02);
+    }
+
+    .file-upload input[type="file"] {
+      position: absolute;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    .file-upload-text {
+      font-size: 12px;
+      color: var(--gray);
+    }
+
+    .file-name {
+      font-size: 11px;
+      color: var(--blue);
+      margin-top: 6px;
+    }
+
+    .form-checkbox {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin: 16px 0;
+    }
+
+    .form-checkbox input {
+      width: auto;
+      margin-top: 3px;
+    }
+
+    .form-checkbox label {
+      margin: 0;
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+      color: #fff;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(28, 42, 133, 0.3);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    .required {
+      color: #e5484d;
+    }
+
+    .success-message {
+      background: #d4edda;
+      border: 1px solid #c3e6cb;
+      color: #155724;
+      padding: 12px;
+      border-radius: 6px;
+      margin-bottom: 16px;
+      display: none;
+      font-size: 13px;
+    }
+
+    .success-message.show {
+      display: block;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--gray);
+    }
+
+    .empty-state-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .stories-header h1 {
+        font-size: 24px;
+      }
+
+      .modal-content {
+        max-width: 100%;
+        max-height: 95vh;
+      }
+    }
+
+    /* Sidebar layout adjustments */
+    .stories-container {
+      margin-left: 0;
+    }
+
+    @media (min-width: 1024px) {
+      .stories-container {
+        margin-left: 280px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Mobile top bar -->
+  <div class="mobile-bar">
+    <a class="logo-link" href="index.html">✦ Paw<span>Bangla</span></a>
+    <div class="mobile-links">
+      <a href="user-dashboard.html">Dashboard</a>
+      <a href="Browse.html">Browse</a>
+      <a href="petstorypost.html">Stories</a>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div>
+      <div class="brand">
+        <a class="brand-link" href="index.html">
+          <div class="brand-icon">✦</div>
+          <div class="brand-text">
+            <div class="name">Paw<span>Bangla</span></div>
+            <div class="subtitle">Adopter Portal</div>
+          </div>
+        </a>
+      </div>
+
+      <nav class="main-nav">
+        <a class="nav-item" href="user-dashboard.html"><span class="left">Dashboard</span></a>
+        <a class="nav-item" href="Browse.html"><span class="left"> Browse Pets</span></a>
+        <a class="nav-item active" href="petstorypost.html"><span class="left"> Success Stories</span></a>
+        <a class="nav-item" href="user-dashboard.html"><span class="left"> My Applications</span><span class="badge" id="appBadge">0</span></a>
+        <a class="nav-item" href="user-dashboard.html"><span class="left">Favorites</span><span class="badge" id="favBadge">0</span></a>
+        <a class="nav-item" href="user-dashboard.html"><span class="left"> Profile</span></a>
+        <a class="nav-item" href="user-dashboard.html"><span class="left"> Notifications</span><span class="badge">2</span></a>
+      </nav>
+    </div>
+
+    <div class="sidebar-footer">
+      <div class="user-row">
+        <div class="user-avatar">👤</div>
+        <div>
+          <div class="user-name js-username">Rahim Uddin</div>
+          <div class="user-role">User</div>
+        </div>
+      </div>
+      <a href="login.html" class="logout-btn" onclick="logout(); return false;">Logout</a>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <main class="main">
+    <div class="top-bar"></div>
+    <div class="stories-container">
+      <!-- Header -->
+      <div class="stories-header">
+        <h1>Success Stories</h1>
+        <p>Heartwarming adoption journeys from our PawBangla community</p>
+      </div>
+
+      <!-- Post Story Button -->
+      <button class="post-story-btn" id="postStoryBtn">+ Share Your Adoption Story</button>
+
+      <!-- Post Story Modal -->
+      <div class="modal" id="postModal">
+        <div class="modal-content">
+          <button class="modal-close" id="modalClose">&times;</button>
+          
+          <h2>Share Your Adoption Story</h2>
+          <p>Help other families find their perfect pet by sharing your heartwarming journey.</p>
+
+          <div class="success-message" id="successMessage">
+            Your story has been posted successfully! Thank you for sharing.
+          </div>
+
+          <form id="storyForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="adopterName">Your Name <span class="required">*</span></label>
+                <input type="text" id="adopterName" name="adopterName" placeholder="Your full name" required>
+              </div>
+              <div class="form-group">
+                <label for="petName">Pet Name <span class="required">*</span></label>
+                <input type="text" id="petName" name="petName" placeholder="Your pet's name" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="petType">Pet Type <span class="required">*</span></label>
+                <select id="petType" name="petType" required>
+                  <option value="">Select pet type</option>
+                  <option value="Dog">Dog</option>
+                  <option value="Cat">Cat</option>
+                  <option value="Bird">Bird</option>
+                  <option value="Rabbit">Rabbit</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="adoptionDate">Adoption Date <span class="required">*</span></label>
+                <input type="date" id="adoptionDate" name="adoptionDate" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="storyText">Your Story <span class="required">*</span></label>
+              <textarea id="storyText" name="storyText" placeholder="Share your adoption journey... What's the story of how you met your pet? How has your pet changed your life?" required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="storyImage">Pet Photo</label>
+              <div class="file-upload">
+                <input type="file" id="storyImage" name="storyImage" accept="image/*">
+                <div class="file-upload-text">Click to upload or drag and drop</div>
+                <div class="file-name" id="fileName"></div>
+              </div>
+            </div>
+
+            <div class="form-checkbox">
+              <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+              <label for="agreeTerms">I agree to share this story publicly on PawBangla. <span class="required">*</span></label>
+            </div>
+
+            <button type="submit" class="submit-btn">Post Story</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Stories Feed -->
+      <div class="stories-feed" id="storiesFeed">
+        <!-- Stories will be populated here -->
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const STORIES_KEY = 'paw_pet_stories';
+    const modal = document.getElementById('postModal');
+    const postBtn = document.getElementById('postStoryBtn');
+    const closeBtn = document.getElementById('modalClose');
+
+    // Modal controls
+    postBtn.addEventListener('click', () => modal.classList.add('show'));
+    closeBtn.addEventListener('click', () => modal.classList.remove('show'));
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.classList.remove('show');
+    });
+
+    // Load stories on page load
+    document.addEventListener('DOMContentLoaded', function () {
+      // Add demo story if no stories exist
+      initializeDemo();
+      loadStories();
+      setupFormHandlers();
+    });
+
+    function initializeDemo() {
+      try {
+        let stories = JSON.parse(localStorage.getItem(STORIES_KEY) || '[]');
+        if (stories.length === 0) {
+          const demoStory = {
+            id: Date.now(),
+            adopterName: 'Ayesha Rahman',
+            petName: 'Buddy',
+            petType: 'Dog',
+            adoptionDate: '2024-06-15',
+            storyText: `When I first saw Buddy at PawBangla, I knew he was the one! He had the sweetest brown eyes and this infectious energy. We visited him three times before we were confident. On the day we brought him home, he was nervous but so loving.\n\nIt's been 3 months now, and Buddy has transformed our lives completely. He greets me every morning with excitement, goes for walks, and has become best friends with our neighbor's cat (which surprised us!). He loves playing fetch in the park and cuddles on the sofa during movie nights.\n\nAdopting from PawBangla was the best decision. The team was so supportive throughout the process, and Buddy is truly a blessing to our family. If you're thinking about adoption, I highly recommend it!`,
+            postedDate: new Date(Date.now() - 7*24*60*60*1000).toISOString() // 7 days ago
+          };
+          stories.push(demoStory);
+          localStorage.setItem(STORIES_KEY, JSON.stringify(stories));
+        }
+      } catch (e) {
+        console.error('Error initializing demo:', e);
+      }
+    }
+
+    function setupFormHandlers() {
+      const form = document.getElementById('storyForm');
+      const fileInput = document.getElementById('storyImage');
+      const fileName = document.getElementById('fileName');
+
+      fileInput.addEventListener('change', function (e) {
+        if (this.files && this.files[0]) {
+          fileName.textContent = this.files[0].name;
+        } else {
+          fileName.textContent = '';
+        }
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const formData = {
+          id: Date.now(),
+          adopterName: document.getElementById('adopterName').value.trim(),
+          petName: document.getElementById('petName').value.trim(),
+          petType: document.getElementById('petType').value,
+          adoptionDate: document.getElementById('adoptionDate').value,
+          storyText: document.getElementById('storyText').value.trim(),
+          image: null,
+          postedDate: new Date().toISOString()
+        };
+
+        if (fileInput.files && fileInput.files[0]) {
+          const reader = new FileReader();
+          reader.onload = function (event) {
+            formData.image = event.target.result;
+            saveStory(formData);
+          };
+          reader.readAsDataURL(fileInput.files[0]);
+        } else {
+          saveStory(formData);
+        }
+      });
+    }
+
+    function saveStory(story) {
+      try {
+        let stories = JSON.parse(localStorage.getItem(STORIES_KEY) || '[]');
+        stories.unshift(story);
+        if (stories.length > 100) {
+          stories = stories.slice(0, 100);
+        }
+        localStorage.setItem(STORIES_KEY, JSON.stringify(stories));
+
+        // Show success message
+        const successMsg = document.getElementById('successMessage');
+        successMsg.classList.add('show');
+        setTimeout(() => {
+          successMsg.classList.remove('show');
+          modal.classList.remove('show');
+          resetForm();
+          loadStories();
+        }, 2000);
+      } catch (e) {
+        console.error('Error saving story:', e);
+        alert('Error saving your story. Please try again.');
+      }
+    }
+
+    function loadStories() {
+      try {
+        const stories = JSON.parse(localStorage.getItem(STORIES_KEY) || '[]');
+        const feed = document.getElementById('storiesFeed');
+
+        if (stories.length === 0) {
+          feed.innerHTML = `
+            <div class="empty-state">
+              <div class="empty-state-icon"></div>
+              <p>No stories yet. Be the first to share your adoption journey!</p>
+            </div>
+          `;
+          return;
+        }
+
+        feed.innerHTML = stories.map(story => {
+          const date = new Date(story.postedDate);
+          const dateStr = getTimeAgo(date);
+
+          return `
+            <div class="story-card">
+              <div class="story-header">
+                <div class="story-avatar">P</div>
+                <div class="story-meta">
+                  <p class="story-meta-name">${escapeHtml(story.petName)}</p>
+                  <p class="story-meta-info">by ${escapeHtml(story.adopterName)} • ${story.petType}</p>
+                </div>
+              </div>
+              ${story.image ? `<img src="${story.image}" alt="${story.petName}" class="story-image">` : ''}
+              <div class="story-content">
+                <div class="story-text">${escapeHtml(story.storyText)}</div>
+              </div>
+              <div class="story-footer">
+                <span>Adopted on ${new Date(story.adoptionDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                <span>${dateStr}</span>
+              </div>
+            </div>
+          `;
+        }).join('');
+      } catch (e) {
+        console.error('Error loading stories:', e);
+      }
+    }
+
+    function resetForm() {
+      document.getElementById('storyForm').reset();
+      document.getElementById('fileName').textContent = '';
+      document.getElementById('successMessage').classList.remove('show');
+    }
+
+    function getPetEmoji(petType) {
+      const letters = {
+        'Dog': 'D',
+        'Cat': 'C',
+        'Bird': 'B',
+        'Rabbit': 'R'
+      };
+      return letters[petType] || 'P';
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    function getTimeAgo(date) {
+      const now = new Date();
+      const seconds = Math.floor((now - date) / 1000);
+      
+      if (seconds < 60) return 'just now';
+      if (seconds < 3600) return Math.floor(seconds / 60) + 'm ago';
+      if (seconds < 86400) return Math.floor(seconds / 3600) + 'h ago';
+      if (seconds < 604800) return Math.floor(seconds / 86400) + 'd ago';
+      
+      return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    }
+  </script>
+
+  <script src="shared-nav.js"></script>
+</body>
+</html>

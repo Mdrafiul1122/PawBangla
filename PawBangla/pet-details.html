@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PawBangla — Pet Details</title>
+<link rel="stylesheet" href="apply.css">
+<link rel="stylesheet" href="shared-nav.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+    <a class="logo-link" href="index.html">
+      <div class="logo-icon">✦</div>
+      <span class="logo-text">Paw<span>Bangla</span></span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="Browse.html" class="nav-link active">Browse Pets</a>
+      <a href="petstorypost.html" class="nav-link">Success Stories</a>
+      <a href="#" class="nav-link">About</a>
+      <a href="#" class="nav-link">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="user-dashboard.html" class="icon-btn">🔔<span class="dot">3</span></a>
+      <a href="login.html" class="btn-outline-nav" id="loginBtn">Login</a>
+      <a href="Browse.html" class="btn-solid-nav">Find a Pet</a>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Pet not found placeholder (hidden by default) -->
+    <div class="detail-layout hidden" id="notFound">
+      <div class="detail-about" style="grid-column:1/-1;">
+        <h2>Pet not found</h2>
+        <p>Sorry, the pet you are looking for does not exist or may have been adopted.</p>
+        <div class="detail-actions">
+          <a class="btn-outline" href="Browse.html">← Back to Browse</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pet details -->
+    <div id="detailRoot"></div>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="section-title">More pets to love</div>
+          <div class="section-sub">Browse pets with similar needs and temperaments.</div>
+        </div>
+        <a class="link-plain" href="Browse.html">Browse all pets →</a>
+      </div>
+
+      <div class="p-grid">
+        <div class="p-card">
+          <div class="p-photo" style="background-image:url('https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=400&h=300&fit=crop')">
+            <span class="type-tag">Cat</span>
+          </div>
+          <div class="p-info">
+            <div class="p-name-row"><span class="name">Mia</span><span class="age">6 months</span></div>
+            <div class="p-breed">Domestic Shorthair · Khulna</div>
+            <div class="btn-row">
+              <a class="btn-outline" href="pet-details.html?id=mia">View Details</a>
+              <span class="btn-solid disabled">Adopted</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-card">
+          <div class="p-photo" style="background-image:url('https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=400&h=300&fit=crop')">
+            <span class="type-tag">Bird</span>
+          </div>
+          <div class="p-info">
+            <div class="p-name-row"><span class="name">Koko</span><span class="age">3 years</span></div>
+            <div class="p-breed">African Grey · Sylhet</div>
+            <div class="btn-row">
+              <a class="btn-outline" href="pet-details.html?id=koko">View Details</a>
+              <a class="btn-solid" href="Apply.html?pet=koko">Adopt</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon">✦</div>
+          <span class="logo-text light">Paw<span>Bangla</span></span>
+        </div>
+        <p>Bangladesh's trusted pet adoption platform — connecting hearts across all 64 districts since 2024.</p>
+        <p class="contact-line">✉ info@pawbangla.com &nbsp; 📞 +880 1700-000000</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>PLATFORM</h4>
+        <a href="Browse.html">Browse Pets</a>
+        <a href="petstorypost.html">Success Stories</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>PETS</h4>
+        <a href="Browse.html?type=Dog">Dogs</a>
+        <a href="Browse.html?type=Cat">Cats</a>
+        <a href="Browse.html?type=Bird">Birds</a>
+        <a href="Browse.html?type=Rabbit">Rabbits</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>ACCOUNT</h4>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+        <a href="user-dashboard.html">My Dashboard</a>
+        <a href="index.html">Home</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 PawBangla. All rights reserved.</span>
+      <span>Made with ♥ for animals in Bangladesh.</span>
+    </div>
+  </footer>
+
+  <script src="js/pet-data.js"></script>
+  <script src="js/details.js"></script>
+  <script src="shared-nav.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

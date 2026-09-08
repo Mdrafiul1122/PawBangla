@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PawBangla — Register</title>
+<link rel="stylesheet" href="apply.css">
+<link rel="stylesheet" href="shared-nav.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+    <a class="logo-link" href="index.html">
+      <div class="logo-icon">✦</div>
+      <span class="logo-text">Paw<span>Bangla</span></span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="Browse.html" class="nav-link">Browse Pets</a>
+      <a href="petstorypost.html" class="nav-link">Success Stories</a>
+      <a href="#" class="nav-link">About</a>
+      <a href="#" class="nav-link">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="Browse.html" class="btn-outline-nav">Browse Pets</a>
+      <a href="login.html" class="btn-solid-nav" id="loginBtn">Login</a>
+    </div>
+  </header>
+
+  <main class="auth-page">
+    <div class="auth-card">
+      <span id="registerError" class="form-error hidden" style="margin-bottom:14px;text-align:center;"></span>
+
+      <a class="auth-brand" href="index.html">
+        <div class="logo-icon">✦</div>
+        <span>Paw<span style="color:var(--blue);">Bangla</span></span>
+      </a>
+      <h1>Create your account</h1>
+      <p class="auth-sub">Join PawBangla to apply for adoption and track your applications.</p>
+
+      <form id="registerForm" novalidate>
+        <div class="form-group">
+          <label for="regName">Full Name <span class="required">*</span></label>
+          <input type="text" id="regName" placeholder="Your full name" autocomplete="name">
+          <p class="form-error" data-for="regName"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="regEmail">Email Address <span class="required">*</span></label>
+          <input type="email" id="regEmail" placeholder="you@example.com" autocomplete="email">
+          <p class="form-error" data-for="regEmail"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="regPhone">Phone Number</label>
+          <input type="tel" id="regPhone" placeholder="+880 1XXXXXXXXX" autocomplete="tel">
+          <p class="form-error" data-for="regPhone"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="regPassword">Password <span class="required">*</span></label>
+          <input type="password" id="regPassword" placeholder="At least 6 characters" autocomplete="new-password">
+          <p class="form-error" data-for="regPassword"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="regConfirm">Confirm Password <span class="required">*</span></label>
+          <input type="password" id="regConfirm" placeholder="Repeat your password" autocomplete="new-password">
+          <p class="form-error" data-for="regConfirm"></p>
+        </div>
+
+        <div class="form-group" style="margin-bottom:18px;">
+          <label class="checkbox-row">
+            <input type="checkbox" id="regAgree">
+            <span>I agree to the <a href="#" style="color:var(--blue);">Terms of Service</a> and Privacy Policy. <span class="required">*</span></span>
+          </label>
+          <p class="form-error" data-for="regAgree"></p>
+        </div>
+
+        <button type="submit" class="submit-btn">Create Account</button>
+      </form>
+
+      <div class="auth-footer">Already have an account? <a href="login.html">Log in</a></div>
+      <div class="auth-hint">Demo mode: your account is stored locally in your browser only.</div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon">✦</div>
+          <span class="logo-text light">Paw<span>Bangla</span></span>
+        </div>
+        <p>Bangladesh's trusted pet adoption platform — connecting hearts across all 64 districts since 2024.</p>
+        <p class="contact-line">✉ info@pawbangla.com &nbsp; 📞 +880 1700-000000</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>PLATFORM</h4>
+        <a href="Browse.html">Browse Pets</a>
+        <a href="petstorypost.html">Success Stories</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>ACCOUNT</h4>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+        <a href="user-dashboard.html">My Dashboard</a>
+        <a href="index.html">Home</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 PawBangla. All rights reserved.</span>
+      <span>Made with ♥ for animals in Bangladesh.</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="shared-nav.js"></script>
+</body>
+</html>
