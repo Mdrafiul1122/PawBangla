@@ -10,7 +10,7 @@
 
   <!-- Mobile top bar -->
   <div class="mobile-bar">
-    <a class="logo-link" href="index.html">🐾 Paw<span>Bangla</span></a>
+    <a class="logo-link" href="index.html"><i data-lucide="paw-print" style="width:18px;height:18px;vertical-align:-3px;"></i> Paw<span>Bangla</span></a>
     <div class="mobile-links">
       <a href="user-dashboard.html">Dashboard</a>
       <a href="Browse.html">Browse</a>
@@ -23,7 +23,7 @@
     <div>
       <div class="brand">
         <a class="brand-link" href="index.html">
-          <div class="brand-icon">🐾</div>
+          <div class="brand-icon"><i data-lucide="paw-print" style="width:18px;height:18px;"></i></div>
           <div class="brand-text">
             <div class="name">Paw<span>Bangla</span></div>
             <div class="subtitle">Adopter Portal</div>
@@ -32,24 +32,24 @@
       </div>
 
       <nav class="main-nav">
-        <a class="nav-item" href="user-dashboard.html"><span class="left">▦ Dashboard</span></a>
-        <a class="nav-item active" href="Browse.html"><span class="left">🐾 Browse Pets</span></a>
-        <a class="nav-item" href="user-dashboard.html"><span class="left">📄 My Applications</span><span class="badge" id="appBadge">0</span></a>
-        <a class="nav-item" href="user-dashboard.html"><span class="left">♥ Favorites</span><span class="badge" id="favBadge">0</span></a>
-        <a class="nav-item" href="user-dashboard.html"><span class="left">👤 Profile</span></a>
-        <a class="nav-item" href="user-dashboard.html"><span class="left">🔔 Notifications</span><span class="badge">2</span></a>
+        <a class="nav-item" href="user-dashboard.html"><span class="left"><i data-lucide="layout-dashboard" style="width:16px;height:16px;"></i> Dashboard</span></a>
+        <a class="nav-item active" href="Browse.html"><span class="left"><i data-lucide="paw-print" style="width:16px;height:16px;"></i> Browse Pets</span></a>
+        <a class="nav-item" href="user-dashboard.html"><span class="left"><i data-lucide="file-text" style="width:16px;height:16px;"></i> My Applications</span><span class="badge" id="appBadge">0</span></a>
+        <a class="nav-item" href="user-dashboard.html"><span class="left"><i data-lucide="heart" style="width:16px;height:16px;"></i> Favorites</span><span class="badge" id="favBadge">0</span></a>
+        <a class="nav-item" href="user-dashboard.html"><span class="left"><i data-lucide="user" style="width:16px;height:16px;"></i> Profile</span></a>
+        <a class="nav-item" href="user-dashboard.html"><span class="left"><i data-lucide="bell" style="width:16px;height:16px;"></i> Notifications</span><span class="badge">2</span></a>
       </nav>
     </div>
 
     <div class="sidebar-footer">
       <div class="user-row">
-        <div class="user-avatar">👤</div>
+        <div class="user-avatar"><i data-lucide="user" style="width:16px;height:16px;"></i></div>
         <div>
           <div class="user-name js-username">Rahim Uddin</div>
           <div class="user-role">User</div>
         </div>
       </div>
-      <a href="login.html" class="logout-btn" onclick="logout(); return false;">⇥ Logout</a>
+      <a href="login.html" class="logout-btn" onclick="logout(); return false;"><i data-lucide="log-out" style="width:14px;height:14px;"></i> Logout</a>
     </div>
   </aside>
 
@@ -58,7 +58,7 @@
     <div class="top-bar">
       <h1>Browse Pets</h1>
       <div class="top-actions">
-        <a href="user-dashboard.html" class="icon-btn">🔔<span class="dot">2</span></a>
+        <a href="user-dashboard.html" class="icon-btn"><i data-lucide="bell" style="width:16px;height:16px;"></i><span class="dot">2</span></a>
         <button class="primary-btn" id="findPetBtn">Find a Pet</button>
       </div>
     </div>
@@ -94,6 +94,8 @@
     </div>
   </main>
 
+  <script src="js/lucide.min.js"></script>
+  <script src="js/icons.js"></script>
   <script src="js/pet-data.js"></script>
   <script src="js/auth.js"></script>
   <script src="js/browse.js"></script>

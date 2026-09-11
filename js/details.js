@@ -15,7 +15,7 @@
 
     var adopted = pet.status !== 'available';
     var actionHtml = adopted
-      ? '<div class="status-tag" style="inset:auto;position:static;"><span>Adopted 🎉</span></div>'
+      ? '<div class="status-tag" style="inset:auto;position:static;"><span>Adopted <i data-lucide="party-popper" style="width:14px;height:14px;vertical-align:middle;"></i></span></div>'
       : '<a class="btn-solid" href="Apply.html?pet=' + pet.id + '">Apply to Adopt</a>';
 
     root.innerHTML =
@@ -35,7 +35,7 @@
             '<div class="dl-row"><span class="k">Compatibility ' + '<span class="compat-flag">' + pet.compatibility + '%</span></span><span class="v">' + pet.temperament + '</span></div>' +
           '</div>' +
           '<div class="detail-actions">' + actionHtml +
-            '<a class="btn-outline" href="Browse.html">← Back to Browse</a>' +
+            '<a class="btn-outline" href="Browse.html"><i data-lucide="arrow-left" style="width:16px;height:16px;vertical-align:middle;margin-right:4px;"></i> Back to Browse</a>' +
           '</div>' +
         '</div>' +
       '</div>' +

@@ -115,8 +115,8 @@
           '<div class="fav-name">' + p.name + '</div>' +
           '<div class="fav-breed">' + p.type + ' · ' + p.age + '</div>' +
         '</div>' +
-        '<a class="icon-btn small" href="pet-details.html?id=' + p.id + '" title="View details">👁</a>' +
-        '<button class="icon-btn small fav-remove" data-id="' + p.id + '" title="Remove favorite">✕</button>';
+        '<a class="icon-btn small" href="pet-details.html?id=' + p.id + '" title="View details"><i data-lucide="eye"></i></a>' +
+        '<button class="icon-btn small fav-remove" data-id="' + p.id + '" title="Remove favorite"><i data-lucide="x"></i></button>';
       grid.appendChild(card);
     });
 
@@ -157,7 +157,7 @@
           '<div class="fav-breed">' + (a.petType || '') + ' · Home since ' + a.date + '</div>' +
           '<div style="margin-top:6px;"><span class="status-pill ' + statusClass(a.status) + '">' + a.status + '</span></div>' +
         '</div>' +
-        (p ? '<a class="icon-btn small" href="pet-details.html?id=' + p.id + '" title="View pet">👁</a>' : '');
+        (p ? '<a class="icon-btn small" href="pet-details.html?id=' + p.id + '" title="View pet"><i data-lucide="eye"></i></a>' : '');
       grid.appendChild(card);
     });
   }
@@ -166,7 +166,7 @@
     var list = $('notifList');
     if (!list) return;
     if (!apps.length) {
-      list.innerHTML = '<div class="notif-item"><div class="notif-icon">📄</div>' +
+      list.innerHTML = '<div class="notif-item"><div class="notif-icon"><i data-lucide="file-text"></i></div>' +
         '<div><div class="notif-text">No notifications yet. Apply for a pet to see updates here.</div>' +
         '<div class="notif-time">—</div></div></div>';
       return;
@@ -175,16 +175,16 @@
       var st = (a.status || '').toLowerCase();
       var icon, text;
       if (st === 'approved') {
-        icon = '🎉';
+        icon = '<i data-lucide="party-popper"></i>';
         text = 'Your adoption application for <b>' + a.petName + '</b> was approved. Welcome home!';
       } else if (st === 'completed') {
-        icon = '💚';
+        icon = '<i data-lucide="circle-check"></i>';
         text = 'Adoption of <b>' + a.petName + '</b> is complete. Congratulations!';
       } else if (st === 'rejected') {
-        icon = '✉️';
+        icon = '<i data-lucide="triangle-alert"></i>';
         text = 'Your application for <b>' + a.petName + '</b> was not approved this time.';
       } else {
-        icon = '📄';
+        icon = '<i data-lucide="clock"></i>';
         text = 'Your application for <b>' + a.petName + '</b> is ' + a.status + ' by our team.';
       }
       return { icon: icon, text: text, time: a.date };

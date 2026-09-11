@@ -52,8 +52,8 @@
         '<td><b>' + (p.compatibility || 0) + '%</b></td>' +
         '<td><span class="status-pill ' + statusClass(p.status) + '">' + statusLabel(p.status) + '</span></td>' +
         '<td><div class="row-actions">' +
-          '<button class="btn btn-outline btn-sm pet-edit" data-id="' + global.esc(p.id) + '">Edit</button>' +
-          '<button class="btn btn-danger btn-sm pet-delete" data-id="' + global.esc(p.id) + '">Delete</button>' +
+          '<button class="btn btn-outline btn-sm pet-edit" data-id="' + global.esc(p.id) + '"><i data-lucide="pencil" style="width:13px;height:13px;vertical-align:-2px;margin-right:4px;"></i>Edit</button>' +
+          '<button class="btn btn-danger btn-sm pet-delete" data-id="' + global.esc(p.id) + '"><i data-lucide="trash-2" style="width:13px;height:13px;vertical-align:-2px;margin-right:4px;"></i>Delete</button>' +
         '</div></td>';
       body.appendChild(tr);
     });

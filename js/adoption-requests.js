@@ -138,14 +138,14 @@
       '<div class="dg-row"><div class="dg-k">Contact Method</div><div class="dg-v">' + global.esc(r.contact || '—') + '</div></div>' +
       (r.address ? '<div class="dg-row detail-full"><div class="dg-k">Address</div><div class="dg-v">' + global.esc(r.address) + '</div></div>' : '') +
       '<div class="dg-row detail-full"><div class="dg-k">Reason for Adoption</div><div class="dg-v">' + global.esc(r.reason || '—') + '</div></div>' +
-      (pet ? '<div class="dg-row detail-full"><div class="dg-k">Pet</div><div class="dg-v"><a class="btn-link" href="pet-details.html?id=' + pet.id + '">View "' + pet.name + '" details →</a></div></div>' : '');
+      (pet ? '<div class="dg-row detail-full"><div class="dg-k">Pet</div><div class="dg-v"><a class="btn-link" href="pet-details.html?id=' + pet.id + '">View "' + pet.name + '" details <i data-lucide="arrow-right" style="width:14px;height:14px;vertical-align:middle;"></i></a></div></div>' : '');
 
     var actions = $('reqModalActions');
     actions.innerHTML = '';
     if (r.status !== 'Approved' && r.status !== 'Completed' && r.status !== 'Rejected') {
       actions.innerHTML =
-        '<button class="btn btn-primary" id="modalApprove">✔ Approve</button>' +
-        '<button class="btn btn-danger" id="modalReject">✕ Reject</button>';
+        '<button class="btn btn-primary" id="modalApprove"><i data-lucide="check" style="width:14px;height:14px;vertical-align:middle;margin-right:4px;"></i> Approve</button>' +
+        '<button class="btn btn-danger" id="modalReject"><i data-lucide="x" style="width:14px;height:14px;vertical-align:middle;margin-right:4px;"></i> Reject</button>';
     }
     actions.insertAdjacentHTML('beforeend', '<button class="btn btn-outline" data-close="requestModal">Close</button>');
 

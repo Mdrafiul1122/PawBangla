@@ -10,9 +10,9 @@
 
   <!-- Header -->
   <header class="site-header">
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><i data-lucide="menu" style="width:18px;height:18px;"></i></button>
     <a class="logo-link" href="index.html">
-      <div class="logo-icon">🐾</div>
+      <div class="logo-icon"><i data-lucide="paw-print" class="logo-mark"></i></div>
       <span class="logo-text">Paw<span>Bangla</span></span>
     </a>
 
@@ -25,7 +25,7 @@
     </nav>
 
     <div class="header-actions">
-      <a href="user-dashboard.html" class="icon-btn">🔔<span class="dot">3</span></a>
+      <a href="user-dashboard.html" class="icon-btn"><i data-lucide="bell" style="width:16px;height:16px;"></i><span class="dot">3</span></a>
       <a href="login.html" class="btn-outline-nav" id="loginBtn">Login</a>
       <a href="Browse.html" class="btn-solid-nav">Find a Pet</a>
     </div>
@@ -39,7 +39,7 @@
         <h2>Pet not found</h2>
         <p>Sorry, the pet you are looking for does not exist or may have been adopted.</p>
         <div class="detail-actions">
-          <a class="btn-outline" href="Browse.html">← Back to Browse</a>
+          <a class="btn-outline" href="Browse.html"><i data-lucide="arrow-left" style="width:14px;height:14px;vertical-align:-2px;margin-right:4px;"></i> Back to Browse</a>
         </div>
       </div>
     </div>
@@ -53,7 +53,7 @@
           <div class="section-title">More pets to love</div>
           <div class="section-sub">Browse pets with similar needs and temperaments.</div>
         </div>
-        <a class="link-plain" href="Browse.html">Browse all pets →</a>
+        <a class="link-plain" href="Browse.html">Browse all pets <i data-lucide="arrow-right" style="width:14px;height:14px;vertical-align:-2px;"></i></a>
       </div>
 
       <div class="p-grid">
@@ -93,11 +93,11 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="logo">
-          <div class="logo-icon">🐾</div>
+          <div class="logo-icon"><i data-lucide="paw-print" class="logo-mark"></i></div>
           <span class="logo-text light">Paw<span>Bangla</span></span>
         </div>
         <p>Bangladesh's trusted pet adoption platform — connecting hearts across all 64 districts since 2024.</p>
-        <p class="contact-line">✉ info@pawbangla.com &nbsp; 📞 +880 1700-000000</p>
+        <p class="contact-line"><i data-lucide="mail" style="width:14px;height:14px;vertical-align:-2px;"></i> info@pawbangla.com &nbsp; <i data-lucide="phone" style="width:14px;height:14px;vertical-align:-2px;"></i> +880 1700-000000</p>
       </div>
 
       <div class="footer-col">
@@ -127,10 +127,12 @@
 
     <div class="footer-bottom">
       <span>© 2026 PawBangla. All rights reserved.</span>
-      <span>Made with ♥ for animals in Bangladesh.</span>
+      <span>Made with <i data-lucide="heart" style="width:13px;height:13px;vertical-align:-2px;"></i> for animals in Bangladesh.</span>
     </div>
   </footer>
 
+  <script src="js/lucide.min.js"></script>
+  <script src="js/icons.js"></script>
   <script src="js/pet-data.js"></script>
   <script src="js/details.js"></script>
   <script src="js/main.js"></script>

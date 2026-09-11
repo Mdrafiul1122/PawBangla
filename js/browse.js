@@ -3,6 +3,7 @@
 
   function $(id) { return document.getElementById(id); }
   function qs(n) { var p = new URLSearchParams(window.location.search); return p.get(n); }
+  function favIcon(on) { return '<i data-lucide="heart"' + (on ? ' fill="currentColor"' : '') + '></i>'; }
 
   function getFavs() {
     try { return JSON.parse(localStorage.getItem('paw_favorites') || '[]'); } catch (e) { return []; }
@@ -14,7 +15,7 @@
     var i = favs.indexOf(id);
     if (i === -1) { favs.push(id); } else { favs.splice(i, 1); }
     saveFavs(favs);
-    if (btn) { btn.classList.toggle('on', i === -1); btn.textContent = i === -1 ? '♥' : '♡'; }
+    if (btn) { btn.classList.toggle('on', i === -1); btn.innerHTML = favIcon(i === -1); }
     var fb = $('favBadge'); if (fb) fb.textContent = favs.length;
   }
 
@@ -49,7 +50,7 @@
     favBtn.className = 'fav-btn' + (isFav(p.id) ? ' on' : '');
     favBtn.type = 'button';
     favBtn.setAttribute('aria-label', isFav(p.id) ? 'Remove ' + p.name + ' from favorites' : 'Add ' + p.name + ' to favorites');
-    favBtn.textContent = isFav(p.id) ? '♥' : '♡';
+    favBtn.innerHTML = favIcon(isFav(p.id));
     favBtn.addEventListener('click', function (e) {
       e.preventDefault();
       e.stopPropagation();

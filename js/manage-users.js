@@ -54,7 +54,7 @@
         '<td><span class="status-pill ' + (isActive ? 'active' : 'blocked') + '">' + (isActive ? 'Active' : 'Blocked') + '</span></td>' +
         '<td><div class="row-actions">' +
           '<button class="btn btn-sm ' + (isActive ? 'btn-outline' : 'btn-primary') + ' user-toggle" data-id="' + global.esc(u.email) + '">' + (isActive ? 'Block' : 'Unblock') + '</button>' +
-          '<button class="btn btn-danger btn-sm user-delete" data-id="' + global.esc(u.email) + '">Delete</button>' +
+          '<button class="btn btn-danger btn-sm user-delete" data-id="' + global.esc(u.email) + '"><i data-lucide="trash-2" style="width:13px;height:13px;vertical-align:-2px;margin-right:4px;"></i>Delete</button>' +
         '</div></td>';
       body.appendChild(tr);
     });
