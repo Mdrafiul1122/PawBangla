@@ -166,7 +166,7 @@
     var list = $('notifList');
     if (!list) return;
     if (!apps.length) {
-      list.innerHTML = '<div class="notif-item"><div class="notif-icon">📄</div>' +
+      list.innerHTML = '<div class="notif-item">' +
         '<div><div class="notif-text">No notifications yet. Apply for a pet to see updates here.</div>' +
         '<div class="notif-time">—</div></div></div>';
       return;
@@ -184,12 +184,12 @@
         icon = '✉️';
         text = 'Your application for <b>' + a.petName + '</b> was not approved this time.';
       } else {
-        icon = '📄';
+        icon = '';
         text = 'Your application for <b>' + a.petName + '</b> is ' + a.status + ' by our team.';
       }
       return { icon: icon, text: text, time: a.date };
     }).map(function (n) {
-      return '<div class="notif-item"><div class="notif-icon">' + n.icon + '</div>' +
+      return '<div class="notif-item">' +
         '<div><div class="notif-text">' + n.text + '</div><div class="notif-time">' + n.time + '</div></div></div>';
     }).join('');
     list.innerHTML = items;

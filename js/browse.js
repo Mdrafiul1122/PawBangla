@@ -79,25 +79,6 @@
     breed.textContent = p.breed + ' · ' + p.location;
     info.appendChild(breed);
 
-    var compatRow = document.createElement('div');
-    compatRow.className = 'compat-row';
-    var cl = document.createElement('span');
-    cl.textContent = 'Compatibility Score';
-    var cs = document.createElement('span');
-    cs.className = 'compat-score ' + (p.compatibility >= 90 ? 'high' : 'mid');
-    cs.textContent = p.compatibility + '%';
-    compatRow.appendChild(cl);
-    compatRow.appendChild(cs);
-    info.appendChild(compatRow);
-
-    var bar = document.createElement('div');
-    bar.className = 'progress-bar';
-    var fill = document.createElement('div');
-    fill.className = 'progress-fill ' + (p.compatibility >= 90 ? 'high' : 'mid');
-    fill.style.width = p.compatibility + '%';
-    bar.appendChild(fill);
-    info.appendChild(bar);
-
     var actions = document.createElement('div');
     actions.className = 'pet-actions';
 
@@ -149,15 +130,12 @@
     var q = ($('searchInput').value || '').toLowerCase().trim();
     var type = $('typeFilter').value;
     var loc = $('locFilter').value;
-    var compat = parseInt($('compatFilter').value, 10) || 0;
-
     var list = PETS.filter(function (p) {
       var matchQ = !q ||
         (p.name + ' ' + p.breed + ' ' + p.location + ' ' + p.district).toLowerCase().indexOf(q) !== -1;
       var matchType = !type || p.type === type;
       var matchLoc = !loc || p.district === loc;
-      var matchCompat = p.compatibility >= compat;
-      return matchQ && matchType && matchLoc && matchCompat;
+      return matchQ && matchType && matchLoc;
     });
     renderPets(list);
   }
@@ -166,21 +144,15 @@
     var q = qs('q');
     var type = qs('type');
     var loc = qs('location');
-    var compat = qs('compatibility');
-
     if (q) $('searchInput').value = q;
     if (type) {
       var cap = type.charAt(0).toUpperCase() + type.slice(1).toLowerCase();
       $('typeFilter').value = cap;
     }
     if (loc) $('locFilter').value = loc;
-    if (compat) $('compatFilter').value = compat;
-
     $('searchInput').addEventListener('input', applyFilters);
     $('typeFilter').addEventListener('change', applyFilters);
     $('locFilter').addEventListener('change', applyFilters);
-    $('compatFilter').addEventListener('change', applyFilters);
-
     var findBtn = $('findPetBtn');
     if (findBtn) {
       findBtn.addEventListener('click', function () {

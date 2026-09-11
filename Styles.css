@@ -369,36 +369,6 @@ nav.main-nav{
   color: var(--text-mid);
 }
 
-.compat-row{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  font-size:11px;
-  color: var(--text-mid);
-  margin-top:2px;
-}
-
-.compat-score{
-  font-weight:700;
-}
-.compat-score.high{ color: var(--green); }
-.compat-score.mid{ color: var(--orange); }
-
-.progress-bar{
-  width:100%;
-  height:5px;
-  background:#eef0f4;
-  border-radius:4px;
-  overflow:hidden;
-  margin-top:2px;
-}
-.progress-fill{
-  height:100%;
-  border-radius:4px;
-}
-.progress-fill.high{ background: var(--green); }
-.progress-fill.mid{ background: var(--orange); }
-
 .pet-actions{
   display:flex;
   gap:8px;

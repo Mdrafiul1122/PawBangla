@@ -32,7 +32,6 @@
             '<div class="dl-row"><span class="k">Age</span><span class="v">' + pet.age + '</span></div>' +
             '<div class="dl-row"><span class="k">Breed</span><span class="v">' + pet.breed + '</span></div>' +
             '<div class="dl-row"><span class="k">Location</span><span class="v">' + pet.location + '</span></div>' +
-            '<div class="dl-row"><span class="k">Compatibility ' + '<span class="compat-flag">' + pet.compatibility + '%</span></span><span class="v">' + pet.temperament + '</span></div>' +
           '</div>' +
           '<div class="detail-actions">' + actionHtml +
             '<a class="btn-outline" href="Browse.html">← Back to Browse</a>' +

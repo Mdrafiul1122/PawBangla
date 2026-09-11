@@ -390,16 +390,6 @@
   <!-- Sidebar -->
   <aside class="sidebar">
     <div>
-      <div class="brand">
-        <a class="brand-link" href="index.html">
-          <div class="brand-icon">✦</div>
-          <div class="brand-text">
-            <div class="name">Paw<span>Bangla</span></div>
-            <div class="subtitle">Adopter Portal</div>
-          </div>
-        </a>
-      </div>
-
       <nav class="main-nav">
         <a class="nav-item" href="user-dashboard.html"><span class="left">Dashboard</span></a>
         <a class="nav-item" href="Browse.html"><span class="left"> Browse Pets</span></a>
@@ -523,10 +513,16 @@
 
     // Load stories on page load
     document.addEventListener('DOMContentLoaded', function () {
+      if (window.requireAuth && !window.requireAuth()) return;
       // Add demo story if no stories exist
       initializeDemo();
       loadStories();
       setupFormHandlers();
+
+      const session = window.getSession ? window.getSession() : null;
+      if (session && session.name) {
+        document.getElementById('adopterName').value = session.name;
+      }
     });
 
     function initializeDemo() {
@@ -568,6 +564,7 @@
 
         const formData = {
           id: Date.now(),
+          userId: window.getCurrentUserId ? window.getCurrentUserId() : '',
           adopterName: document.getElementById('adopterName').value.trim(),
           petName: document.getElementById('petName').value.trim(),
           petType: document.getElementById('petType').value,
@@ -693,6 +690,7 @@
     }
   </script>
 
+  <script src="js/auth.js"></script>
   <script src="shared-nav.js"></script>
 </body>
 </html>

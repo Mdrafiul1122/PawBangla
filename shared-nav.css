@@ -44,18 +44,13 @@ body { padding-top: 74px; }
 .sidebar-toggle:hover { background: #2F6EE4; color: #fff; }
 .admin-sidebar .sidebar-toggle { background: #0f1a2e; border-color: #2F6EE4; color: #fff; }
 .admin-sidebar .sidebar-toggle:hover { background: #2F6EE4; }
-.sidebar > .brand { padding-top: 90px; }
-.admin-sidebar > .admin-brand { padding-top: 90px; }
-.sidebar > .brand .brand-icon,
-.admin-sidebar > .admin-brand .icon { position: relative; top: 14px; }
+.sidebar > div > .main-nav,
+.admin-sidebar > div > .admin-nav { padding-top: 90px; }
 .sidebar.collapsed { width: 76px; }
 .admin-sidebar.collapsed { width: 82px; }
 .shared-nav ~ .sidebar.collapsed ~ .main { margin-left: 76px; }
 .shared-nav ~ .admin-sidebar.collapsed ~ .admin-main { margin-left: 82px; }
-.sidebar.collapsed .brand { justify-content: center; padding-left: 0; padding-right: 0; }
-.sidebar.collapsed .brand-text,
 .sidebar.collapsed .sidebar-footer .user-row > div,
-.admin-sidebar.collapsed .admin-brand .text,
 .admin-sidebar.collapsed .admin-user-row > div { display: none; }
 .sidebar.collapsed .nav-item,
 .admin-sidebar.collapsed .admin-nav a { justify-content: center; padding-left: 8px; padding-right: 8px; }

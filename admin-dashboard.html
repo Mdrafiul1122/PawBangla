@@ -10,7 +10,7 @@
 <body>
 
   <div class="admin-mobile-bar">
-    <a class="brand-link" href="admin-dashboard.html"><span>✦</span> PawBangla Admin</a>
+    <a class="brand-link" href="admin-dashboard.html"><span></span> PawBangla Admin</a>
     <div class="m-links">
       <a href="admin-dashboard.html" data-page="admin-dashboard.html">Dash</a>
       <a href="manage-pets.html" data-page="manage-pets.html">Pets</a>
@@ -22,36 +22,28 @@
   <!-- Sidebar -->
   <aside class="admin-sidebar">
     <div>
-      <a class="admin-brand" href="admin-dashboard.html">
-        <div class="icon">✦</div>
-        <div class="text">
-          <div class="name"><span>PawBangla</span></div>
-          <div class="sub">Admin Panel</div>
-        </div>
-      </a>
-
       <nav class="admin-nav">
         <div class="nav-label">Overview</div>
-        <a href="admin-dashboard.html" data-page="admin-dashboard.html"><span>🏠 Dashboard</span></a>
+        <a href="admin-dashboard.html" data-page="admin-dashboard.html"><span>Dashboard</span></a>
         <div class="nav-label">Manage</div>
-        <a href="manage-pets.html" data-page="manage-pets.html"><span>✦ Pets</span><span class="badge" id="navPetBadge">0</span></a>
-        <a href="adoption-requests.html" data-page="adoption-requests.html"><span>📄 Adoption Requests</span><span class="badge" id="navReqBadge">0</span></a>
-        <a href="manage-users.html" data-page="manage-users.html"><span>👤 Users</span><span class="badge" id="navUserBadge">0</span></a>
+        <a href="manage-pets.html" data-page="manage-pets.html"><span>Pets</span><span class="badge" id="navPetBadge">0</span></a>
+        <a href="adoption-requests.html" data-page="adoption-requests.html"><span>Adoption Requests</span><span class="badge" id="navReqBadge">0</span></a>
+        <a href="manage-users.html" data-page="manage-users.html"><span>Users</span><span class="badge" id="navUserBadge">0</span></a>
         <div class="nav-label">Links</div>
-        <a href="index.html"><span>🌐 View Site</span></a>
-        <a href="Browse.html"><span>🛒 Adopter Portal</span></a>
+        <a href="index.html"><span>View Site</span></a>
+        <a href="Browse.html"><span>Adopter Portal</span></a>
       </nav>
     </div>
 
     <div class="admin-sidebar-footer">
       <div class="admin-user-row">
-        <div class="admin-avatar">👤</div>
+        <div class="admin-avatar"></div>
         <div>
           <div class="name js-admin-name">Site Admin</div>
           <div class="role">Administrator</div>
         </div>
       </div>
-      <a href="admin-login.html" class="logout-btn-admin">⇥ Logout</a>
+      <a href="admin-login.html" class="logout-btn-admin">Logout</a>
     </div>
   </aside>
 
@@ -60,7 +52,7 @@
     <div class="admin-topbar">
       <h1>Admin Dashboard</h1>
       <div class="admin-actions">
-        <a class="btn btn-outline" href="index.html">🌐 View Site</a>
+        <a class="btn btn-outline" href="index.html">View Site</a>
         <a class="btn btn-primary" href="manage-pets.html">+ Add Pet</a>
       </div>
     </div>
@@ -68,27 +60,27 @@
     <!-- Stats -->
     <div class="admin-stats">
       <div class="admin-stat blue">
-        <div class="stat-icon">✦</div>
+        <div class="stat-icon"></div>
         <div class="stat-label">Total Pets</div>
         <div class="stat-value" id="statTotalPets">0</div>
       </div>
       <div class="admin-stat green">
-        <div class="stat-icon">✅</div>
+        <div class="stat-icon"></div>
         <div class="stat-label">Available Pets</div>
         <div class="stat-value" id="statAvailablePets">0</div>
       </div>
       <div class="admin-stat orange">
-        <div class="stat-icon">⏳</div>
+        <div class="stat-icon"></div>
         <div class="stat-label">Pending Requests</div>
         <div class="stat-value" id="statPendingRequests">0</div>
       </div>
       <div class="admin-stat purple">
-        <div class="stat-icon">🎉</div>
+        <div class="stat-icon"></div>
         <div class="stat-label">Approved Requests</div>
         <div class="stat-value" id="statApprovedRequests">0</div>
       </div>
       <div class="admin-stat blue">
-        <div class="stat-icon">👤</div>
+        <div class="stat-icon"></div>
         <div class="stat-label">Total Users</div>
         <div class="stat-value" id="statTotalUsers">0</div>
       </div>
@@ -130,19 +122,19 @@
       <h2 class="admin-section-title">Quick Actions</h2>
       <div class="quick-actions">
         <a class="qa-card" href="manage-pets.html#new-pet">
-          <span class="qa-icon">✦</span>
+          <span class="qa-icon"></span>
           <div><b>Add a new pet</b><span>Create a listing for an animal</span></div>
         </a>
         <a class="qa-card" href="adoption-requests.html">
-          <span class="qa-icon">📄</span>
+          <span class="qa-icon"></span>
           <div><b>Review requests</b><span>Approve or reject adoptions</span></div>
         </a>
         <a class="qa-card" href="manage-users.html">
-          <span class="qa-icon">👤</span>
+          <span class="qa-icon"></span>
           <div><b>Manage users</b><span>View and manage accounts</span></div>
         </a>
         <a class="qa-card" href="Browse.html">
-          <span class="qa-icon">🌐</span>
+          <span class="qa-icon"></span>
           <div><b>View public site</b><span>Check the user experience</span></div>
         </a>
       </div>
@@ -152,7 +144,7 @@
   <!-- Confirm modal -->
   <div class="modal-overlay" id="confirmModal">
     <div class="modal modal-sm">
-      <div class="confirm-icon">⚠️</div>
+      <div class="confirm-icon"></div>
       <h3 style="text-align:center;">Are you sure?</h3>
       <p id="confirmText" style="text-align:center;font-size:13px;color:var(--text-mid);margin-top:8px;"></p>
       <div class="modal-actions" style="justify-content:center;">
